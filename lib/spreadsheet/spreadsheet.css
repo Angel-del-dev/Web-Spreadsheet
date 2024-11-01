@@ -1,0 +1,205 @@
+:root {
+    --sp-header-height: 100px;
+    --sp-footer-height: 25px;
+    --sp-footer-active-bg: teal;
+    --sp-footer-active-color: white;
+}
+
+.__spreadsheet__container,
+.__spreadsheet__container > footer ,
+.__spreadsheet__container footer .__spreadsheet__page,
+.__spreadsheet__container footer .__spreadsheet__page i {
+    display: flex;
+    align-items: center;
+}
+
+.__spreadsheet__container {
+    width: 100%; height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    /* gap: 10px; */
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.__spreadsheet__error_modal {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.__spreadsheet__error_backdrop {
+    position: absolute;
+    top: 0; left: 0;
+    background-color: rgba(211, 211, 211, .7);
+    width: 100%; height: 100%;
+}
+
+.__spreadsheet__error_body {
+    width: fit-content;
+    height: fit-content;
+    max-width: 70%;
+    max-height: 50%;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.__spreadsheet__error_body > h1 {
+    font-size: 1.4rem;
+    font-style: bold;
+}
+
+.__spreadsheet__error_body > code {
+    display: inline-block;
+    color: rgb(229, 108, 129);
+    font-size: 1rem;
+    padding: 1rem;
+    height: fit-content;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.__spreadsheet__error_body button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(103, 103, 229);
+    color: white;
+    border: 1px solid rgb(103, 103, 229);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.3rem;
+}
+
+.__spreadsheet__error_body button:hover {
+    cursor: pointer;
+}
+
+.__spreadsheet__container header,
+.__spreadsheet__container .__spreadsheet__body,
+.__spreadsheet__container footer {
+    width: 100%;
+}
+
+.__spreadsheet__container > header {
+    height: var(--sp-header-height);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.__spreadsheet__container .__spreadsheet__body {
+    height: calc(100% - var(--sp-header-height) - var(--sp-footer-height));
+    overflow: auto;
+}
+
+.__spreadsheet__container > footer {
+    height: var(--sp-footer-height);
+    border-top: 1px solid black;
+    border-radius: 0 5px;
+    justify-content: flex-start;
+}
+
+.__spreadsheet__container footer .__spreadsheet__page {
+    width: calc(100% / 8);
+    height: 100%;
+    justify-content: space-between;
+    padding: 0 5px;
+    background-color: white;
+    border-radius: inherit;
+}
+
+.__spreadsheet__container footer .__spreadsheet__page > span  {
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+ }
+
+ .__spreadsheet__container footer .__spreadsheet__page > span {
+    
+    max-width: 75%;
+}
+
+.__spreadsheet__container footer .__spreadsheet__page > i {
+    height: 100%;
+    justify-content: center;
+}
+
+.__spreadsheet__container footer .__spreadsheet__page:hover,
+.__spreadsheet__container footer .__spreadsheet__page.active {
+    cursor: pointer;
+    color: var(--sp-footer-active-color);
+    background-color: var(--sp-footer-active-bg);
+}
+
+.__spreadsheet__container header input[type="text"] {
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 5px;
+    width: 75%;
+}
+
+.__spreadsheet__container header input[type="text"]:focus {
+    outline: unset;
+}
+
+.__spreadsheet__table,
+.__spreadsheet__table thead,
+.__spreadsheet__table tbody {
+    width: 100%; 
+}
+
+.__spreadsheet__table {
+    height: 100%;
+    position: relative;
+}
+
+/* TODO - Problem with position sticky and border-collapse, should set to separate instead */
+.__spreadsheet__table,
+.__spreadsheet__table tbody,
+.__spreadsheet__table > tbody > tr,
+.__spreadsheet__table > tbody > tr > td,
+.__spreadsheet__table > thead > tr > th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.__spreadsheet__table > thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+.__spreadsheet__table > tbody > tr > td:not(:nth-of-type(1)) {
+    min-width: 50px;
+    /* width: fit-content; */
+    max-width: fit-content;
+    word-break: break-all;
+    vertical-align: baseline;
+    padding: 5px;
+    min-height: 10px;
+    max-height: min-content;
+}
+
+.__spreadsheet__table > tbody > tr > td:nth-of-type(1) {
+    background-color: gray;
+    width: 20px;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+}
+
+.__spreadsheet__table > tbody > tr > td:not(:nth-of-type(1)):hover,
+.__spreadsheet__table > tbody > tr > td.active {
+    border: 5px solid var(--sp-footer-active-bg);
+}
