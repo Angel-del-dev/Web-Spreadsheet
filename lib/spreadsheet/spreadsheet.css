@@ -48,6 +48,11 @@
     padding: 1rem;
     border-radius: 5px;
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .__spreadsheet__error_body > h1 {
@@ -67,6 +72,7 @@
 }
 
 .__spreadsheet__error_body button {
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -210,4 +216,34 @@
 
 .d-none {
     display: none !important;
+}
+
+.__spreadsheet__container > header button {
+    background-color: transparent;
+    border: 0;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.__spreadsheet__container > header button:not([disabled]):hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.__spreadsheet__container > header button:not([disabled]):hover > div {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.__spreadsheet__container > header button:not([disabled]) > div > span {
+    width: 100%;
+    padding: 5px;
+}
+
+.__spreadsheet__container > header button:not([disabled]) > div > span:hover {
+    background-color: lightgray;
 }
