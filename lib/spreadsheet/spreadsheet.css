@@ -203,3 +203,11 @@
 .__spreadsheet__table > tbody > tr > td.active {
     border: 5px solid var(--sp-footer-active-bg);
 }
+
+.__spreadsheet__more_info_btn:hover {
+    cursor: pointer;
+}
+
+.d-none {
+    display: none !important;
+}
