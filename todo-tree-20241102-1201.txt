@@ -1,0 +1,7 @@
+└─ web-spreadsheet
+   ├─ spreadsheet.css
+   │  └─ line 166: TODO - Problem with position sticky and border-collapse, should set to separate instead
+   └─ spreadsheet.js
+      ├─ line 124: TODO - Add more functionality to the header like changing colors of cells...
+      ├─ line 398: TODO - Allow for page creation
+      └─ line 399: TODO - Allow for page configuration such as change color, change name...
